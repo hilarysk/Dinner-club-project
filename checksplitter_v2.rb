@@ -30,10 +30,14 @@ class Checksplitter
   # State Changes:
   # Sets @total_cost, @tip_percentage and @group_num
   
-  def initialize(total_cost, tip_percentage, group_num)
-    @total_cost = total_cost.to_f
-    @tip_percentage = tip_percentage.to_f * 0.01
-    @group_num = group_num.to_f
+  def initialize(total_cost, tip_percentage=20, group_num=1)
+    @total_cost = total_cost.to_f.abs
+    @tip_percentage = tip_percentage.to_f.abs * 0.01
+    @group_num = group_num.to_f.abs
+  end
+
+  def tip_amount
+    @tip_percentage * @total_cost
   end
   
   # Public: #cost_per_person
@@ -52,21 +56,16 @@ class Checksplitter
     sprintf("%.02f", ((tip_amount + @total_cost) / @group_num)).to_f
   end
   
-  #----------------- below: methods that are supposed to solve user input errors
-  
+ 
   # def group_num
  #    if @group_num < 1
  #      @group_num *= -@group_num
  #    end
  #  end
   
-  # def tip_amount
-  #   if @tip_percentage < 0.01
-  #     @tip_percentage = 0.20
-  #   else
-  #     tip_amount = sprintf("%.02f", (@tip_percentage * @total_cost)).to_f
-  #   end
-  # end
+
 
 
 end
+
+binding.pry 
