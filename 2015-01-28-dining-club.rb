@@ -2,10 +2,7 @@ require "pry"
 require_relative "checksplitter_v2"
 require_relative "person_class"
 
-
-# DOCUMENTATION
-#
-# Class: DinningClub
+# Class: DiningClub
 #
 # Creates groups of diners who eat food and pay for it and stuff. 
 #
