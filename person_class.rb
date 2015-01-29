@@ -10,6 +10,7 @@ require "pry"
 #
 # Public Methods:
 # #spend
+# #show_instance_variable_values
 
 class Person
   
@@ -27,13 +28,30 @@ class Person
   
   attr_accessor :name, :spending_amount 
   
-  def initialize(name)                 
-    @name = name                       
+  def initialize(name)                
+    @name = name.to_s                       
     @spending_amount = 0
   end
   
+  
+  # Public: #show_instance_variable_values
+  # Outputs the values for @name and @spending_amount
+  #
+  # Parameters:
+  # None
+  #
+  # Returns:
+  # nil
+  #
+  # State Changes:
+  # None
+  
+  def show_instance_variable_values
+    puts "#{@name}, #{@spending_amount}"
+  end  
+    
   # Public: #spend
-  # Updates the @spending_amount instance variable when the corresponding member @name
+  # Updates the @spending_amount instance variable for the corresponding member @name
   #
   # Parameters:
   # amount - integer by which @spending_amount should increase
@@ -44,8 +62,10 @@ class Person
   # State Changes:
   # Changes the value of @spending_amount
   
-  def spend(amount)
-    @spending_amount += amount
+  def spend(amount=0)
+    @spending_amount += amount.to_f.abs
   end
   
 end
+
+binding.pry

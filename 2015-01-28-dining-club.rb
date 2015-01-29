@@ -194,9 +194,9 @@ end
 
 
 
-omaha_club = DiningClub.new
-omaha_club.add_member("Batman") # ==> @members = {"Batman" => @name="Batman", @spending_amount=0}
-
-puts omaha_club.get_member_balance("Batman")
+# omaha_club = DiningClub.new
+# omaha_club.add_member("Batman") # ==> @members = {"Batman" => @name="Batman", @spending_amount=0}
+#
+# puts omaha_club.get_member_balance("Batman")
 
 binding.pry  
